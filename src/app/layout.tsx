@@ -28,6 +28,9 @@ export default function RootLayout({
 
   return (
     <html lang="ar">
+      <head>
+        <link rel="icon" href="/Screenshot 2024-10-21 125909 (4).png" />
+      </head>
       <body className={`m-0  antialiased opacity-100 ${cairo.className} `} dir="rtl">
         <Provider store = {store}>
           <Header isCartOpen ={isCartOpen} toggleCart ={toggleCart}/> 
