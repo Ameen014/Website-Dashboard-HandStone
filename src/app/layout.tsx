@@ -22,6 +22,13 @@ export default function RootLayout({
   const toggleCart = () => {
       setisCartOpen(!isCartOpen);
   };
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+      setIsClient(true);
+  }, []);
+
+  if (!isClient) return null;
 
   useEffect(() => {
     document.body.style.opacity = isCartOpen ? "0.8" : "1";
