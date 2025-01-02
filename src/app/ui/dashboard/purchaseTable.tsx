@@ -1,24 +1,9 @@
-"use client";
+import React from "react";
+import { fetchPurchaseInvoice } from "../../lib/data";
 
-import React, { useState } from "react";
-import { usePathname } from "next/navigation";
-import { fetchPurchaseInvoice , fetchSalesInvoice } from "../../lib/data";
+export default async function Table ({person , time}) {
 
-export default function Table ({person , time}) {
-
-  const [items ,setItems] = useState([]);
-
-  const path = usePathname();
-
-  const fetchData = async () => {
-    if (path === "/dashboard/sales") {
-      return setItems( await fetchSalesInvoice(person , time));
-    } else {
-      return setItems(await fetchPurchaseInvoice(person , time));
-    }
-  };
-  fetchData();
-  
+  const items = await fetchPurchaseInvoice(person , time);
 
     return (
       <table className="w-full border-collapse text-center bg-white shadow-md rounded-lg">
@@ -31,7 +16,7 @@ export default function Table ({person , time}) {
             <th className=" px-3 py-2">الباقي</th>
             <th className=" px-3 py-2">الحالة</th>
             <th className=" px-3 py-2">الوقت</th>
-            <th className=" px-3 py-2">{path === "/dashboard/sales" ? "المشتري" : "البائع"}</th>
+            <th className=" px-3 py-2">البائع</th>
           </tr>
         </thead>
         <tbody>
@@ -44,7 +29,7 @@ export default function Table ({person , time}) {
               <td className="border border-gray-300 px-4 py-2">{item.rest.toLocaleString()}</td>
               <td className="border border-gray-300 px-4 py-2">{item.status == true ? "سددت" : "لم تسدد"}</td>
               <td className="border border-gray-300 px-4 py-2">{item.createdat.toLocaleDateString()}</td>
-              <td className="border border-gray-300 px-3 py-2">{path === "/dashboard/sales" ? item.buyersname : item.sellersname}</td>
+              <td className="border border-gray-300 px-3 py-2">{item.sellersname}</td>
             </tr>
           ))}
         </tbody>

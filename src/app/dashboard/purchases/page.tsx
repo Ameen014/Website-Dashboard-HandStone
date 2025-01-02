@@ -1,4 +1,4 @@
-import Table from "../../ui/dashboard/sales-purchase-table";
+import Table from "../../ui/dashboard/purchaseTable";
 import { fetchSellers } from "../../lib/data"
 import Search from "../../ui/dashboard/search/purchasesSalesSearch";
 import { Suspense } from "react";

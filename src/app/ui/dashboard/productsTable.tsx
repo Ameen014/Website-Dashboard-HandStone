@@ -1,5 +1,3 @@
-"use client";
-
 import { fetchProducts } from "../../lib/data";
 
 export default async function Table ({keywords , categoryId}) {

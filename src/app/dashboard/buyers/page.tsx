@@ -1,4 +1,4 @@
-import Table from "../../ui/dashboard/seller-buyer-Table";
+import Table from "../../ui/dashboard/buyerTable";
 import Search from "../../ui/dashboard/search/sellersBuyersSearch";
 import { Suspense } from "react";
 import Loading from "../../ui/dashboard/loading/loadingTable";

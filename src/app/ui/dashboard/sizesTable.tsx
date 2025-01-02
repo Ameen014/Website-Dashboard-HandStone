@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { CiEdit } from "react-icons/ci";
 import { fetchSizes } from "../../lib/data";
