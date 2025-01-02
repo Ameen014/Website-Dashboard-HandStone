@@ -9,8 +9,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        "dark-blue": "#14213d",
+        "light-blue": "#1d3557",
+        "light-red": "#f1faee",
+        "red-500": "#e63946",
+        'light-gray': '#f1faee',
+        'light-black': '#1E1818',
+        'title' : '#333',
+        'text' : '#555',
+      },
+      lineHeight: {
+        3: '1.75rem', 
       },
     },
   },
