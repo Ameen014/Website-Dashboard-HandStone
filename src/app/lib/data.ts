@@ -315,8 +315,7 @@ export async function fetchPurchaseInvoice (seller? : string , time? : string) {
       SELECT p.id, p.products, p.total, p.paid, p.rest, p.createdat, s.name AS sellersName , p.status
       FROM purchases p
       JOIN sellers s ON s.id = p.sellerid
-      WHERE 
-        s.name ILIKE ${'%' + seller + '%'}
+
     `
 
     const data = await query;

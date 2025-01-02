@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Bar , Donut } from '../../../ui/dashboard/statistics/statistics';
-import { fetchStatisticsExpenses , fetchStatisticsSales , fetchStatisticsPurchases } from "../../../lib/data";
+import { fetchStatisticsExpenses } from "../../../lib/data";
 import Search from '../../../ui/dashboard/search/statisticsSearch';
 
 export default async  function Page(props : {searchParams? : Promise<{ month? : number }> }) {
@@ -10,8 +10,7 @@ export default async  function Page(props : {searchParams? : Promise<{ month? : 
     const month = searchParams.month || null;
 
     const data = await fetchStatisticsExpenses(month);
-// const data = await fetchStatisticsSales();
-// const data = await fetchStatisticsPurchases();
+
 
   return (
     <div className='pt-8'>

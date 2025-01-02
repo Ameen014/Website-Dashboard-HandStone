@@ -1,22 +1,24 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import { fetchPurchaseInvoice , fetchSalesInvoice } from "../../lib/data";
 
 export default function Table ({person , time}) {
 
+  const [items ,setItems] = useState([]);
+
   const path = usePathname();
 
   const fetchData = async () => {
     if (path === "/dashboard/sales") {
-      return await fetchSalesInvoice(person , time);
+      return setItems( await fetchSalesInvoice(person , time));
     } else {
-      return await fetchPurchaseInvoice(person , time);
+      return setItems(await fetchPurchaseInvoice(person , time));
     }
   };
+  fetchData();
   
-  const items = React.use(fetchData());
 
     return (
       <table className="w-full border-collapse text-center bg-white shadow-md rounded-lg">

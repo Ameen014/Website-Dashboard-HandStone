@@ -1,8 +1,10 @@
-import { fetchExpensesInvoice } from "../../lib/data";
+import { fetchExpensesInvoice, fetchPurchaseInvoice } from "../../lib/data";
 
 export default async function Table ({type , time}) {
 
   const items = await fetchExpensesInvoice(type , time);
+  // const test = await fetchPurchaseInvoice();
+  // console.log(test);
 
     return (
       <table className="w-full border-collapse text-center bg-white shadow-md rounded-lg">

@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react";
-import { useDebouncedCallback } from 'use-debounce';
 import { usePathname , useRouter , useSearchParams } from "next/navigation";
 import { FaUserCircle } from "react-icons/fa";
 
@@ -11,7 +10,7 @@ const Search = ({data , placeholder}) => {
     const pathname = usePathname();
     const { replace } = useRouter();
 
-    const handleSearch = (term) => {
+    const handleSearch = (term : any) => {
         const params = new URLSearchParams(Array.from(searchParams.entries())); // Convert to array  
         if (term) {
           params.set('seller',term);
@@ -22,7 +21,7 @@ const Search = ({data , placeholder}) => {
         replace(`${pathname}?${params.toString()}`);
     };
 
-    const handleTime = (term) => {
+    const handleTime = (term: any) => {
         const params = new URLSearchParams(Array.from(searchParams.entries())); // Convert to array  
        const date =  term.split('T')[0];
        console.log(date)

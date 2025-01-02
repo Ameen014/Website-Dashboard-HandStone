@@ -1,4 +1,3 @@
-"use client";
 
 import HeaderDashboard from "../ui/layout/header/headerDashboard";
 

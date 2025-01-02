@@ -9,7 +9,6 @@ import { Provider } from 'react-redux';
 import store from './lib/store';
 import { Toaster } from "react-hot-toast";
 import { cairo } from "./ui/fonts/fonts";
-import { usePathname } from "next/navigation";
 
 export default function RootLayout({
   children,
@@ -22,13 +21,6 @@ export default function RootLayout({
   const toggleCart = () => {
       setisCartOpen(!isCartOpen);
   };
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-      setIsClient(true);
-  }, []);
-
-  if (!isClient) return null;
 
   useEffect(() => {
     document.body.style.opacity = isCartOpen ? "0.8" : "1";

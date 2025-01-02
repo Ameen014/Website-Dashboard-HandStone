@@ -2,11 +2,8 @@
 import React from 'react';  
 import Image from 'next/image';
 import SectionOnePhoto from "../../../../public/تصميم-بدون-عنوان-4.png";  
-import { fetchProductsSlider } from '../../lib/data';
 
 const  HomeSectionOne = async  () => {  
-    const data = await fetchProductsSlider();
-    console.log("test the products" , data);
 
     return (  
         <div className="flex flex-col max-w-[1200px] mx-auto my-2 p-5 pt-[80px] bg-white rounded-lg shadow-lg overflow-hidden gap-10 md:flex-row"> 

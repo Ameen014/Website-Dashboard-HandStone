@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import HomeCategorySetion from "./ui/home/homeCategoriesSection";
 import HomeContactSection from "./ui/home/homeContactSection";
 import HomeSectionOne from "./ui/home/homeSectionOne";
@@ -12,7 +12,9 @@ export default function Home() {
       <HomeSectionOne />/
       <HomeSectionTwo />
       <HomeSectionThree />
-      <HomeCategorySetion />
+      <Suspense fallback={<div>loading</div>}>
+        <HomeCategorySetion />
+      </Suspense>
       <HomeProductsSection/>
       <HomeContactSection />
     </div>

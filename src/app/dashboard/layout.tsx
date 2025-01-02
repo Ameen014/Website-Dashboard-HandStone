@@ -1,34 +1,28 @@
-"use client";
+"use client";  
 
-import React  from "react";
-import { useSelector } from "react-redux";
-import { useRouter } from "next/navigation";
-import { useEffect , useState } from "react";
-const DashboardLayout = ({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) => {
+import React, { useEffect } from "react";  
+import { useSelector } from "react-redux";  
+import { useRouter } from "next/navigation";  
 
-    const router = useRouter();
-    const login = useSelector((state : any) => state.auth.isLogin);
-    const [isClient, setIsClient] = useState(false);
+const DashboardLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {  
+    const router = useRouter();  
+    const login = useSelector((state: any) => state.auth.isLogin);  
 
-    useEffect(() => {
-        setIsClient(true);
-    }, []);
+    useEffect(() => {  
+        // Redirect to login if not authenticated  
+        if (!login) {  
+            router.push("/login");  
+        }  
+    }, [login, router]);  
 
-    if (!isClient) return null;
+    // You may return null while redirecting  
+    if (!login) return null;   
 
-    if(!login){
-        return router.push("/login");
-    }
-
-    return (
-        <div className="h-auto">
-         {children}
+    return (  
+        <div className="h-auto">  
+            {children}  
         </div>  
-    );
-    
-}
+    );  
+};  
+
 export default DashboardLayout;
