@@ -23,7 +23,7 @@ const HomeCategorySetion = () => {
     const searchParams = useSearchParams();
     
     const handleSearch = (categoryId : any) => {
-        const params = new URLSearchParams(searchParams); 
+        const params = new URLSearchParams(Array.from(searchParams.entries())); // Convert to array  
         if(categoryId){
             params.set("categoryId", categoryId);
         }

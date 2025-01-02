@@ -12,7 +12,7 @@ const Search: React.FC = () => {
 
   const handleSearch = useCallback(
     (term: number | null) => {
-      const params = new URLSearchParams(searchParams);
+      const params = new URLSearchParams(Array.from(searchParams.entries())); // Convert to array  
       if (term) {
         params.set("month", term.toString());
       } else {

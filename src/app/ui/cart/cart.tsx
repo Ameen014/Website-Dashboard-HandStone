@@ -12,12 +12,12 @@ const Cart = ({isCartOpen , toggleCart} : {isCartOpen : boolean , toggleCart : (
     const cartItems = useSelector((state : any) => state.cart.items);
     const totalQuantity = useSelector((state : any) => state.cart.totalQuantity);
 
-    const handleRemoveItem = (id : number) => {
+    const handleRemoveItem = (id : string) => {
         dispatch(cartActions.removeItemFromCart(id));
         toast.success("تم حذف المنتج من السلة بنجاح");
     };
 
-    const handleChangeQuantity = (id : number, quantityChange : number) => {
+    const handleChangeQuantity = (id : string, quantityChange : number) => {
         dispatch(cartActions.changeItemQuantity({ id, quantityChange }));
     };
 

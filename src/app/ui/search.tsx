@@ -21,8 +21,8 @@ const Search = () => {
     ];
 
     const handleSearch = useDebouncedCallback( (term) => {
-        const params = new URLSearchParams(searchParams);
-        if (term) {
+      const params = new URLSearchParams(Array.from(searchParams.entries())); // Convert to array  
+      if (term) {
           params.set('keywords',term);
         }
         else
@@ -34,7 +34,7 @@ const Search = () => {
 
     const handleCategory = (term : any) => {
         setselectedCategory(term);
-        const params = new URLSearchParams(searchParams);
+        const params = new URLSearchParams(Array.from(searchParams.entries())); // Convert to array  
         if (term) {
           params.set('categoryId',term);
         }

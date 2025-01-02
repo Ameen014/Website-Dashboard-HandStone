@@ -12,7 +12,7 @@ const Search = ({data , placeholder}) => {
     const { replace } = useRouter();
 
     const handleSearch = (term) => {
-        const params = new URLSearchParams(searchParams);
+        const params = new URLSearchParams(Array.from(searchParams.entries())); // Convert to array  
         if (term) {
           params.set('seller',term);
         }
@@ -23,7 +23,7 @@ const Search = ({data , placeholder}) => {
     };
 
     const handleTime = (term) => {
-        const params = new URLSearchParams(searchParams);
+        const params = new URLSearchParams(Array.from(searchParams.entries())); // Convert to array  
        const date =  term.split('T')[0];
        console.log(date)
         if (date) {

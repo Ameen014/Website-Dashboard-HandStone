@@ -11,8 +11,8 @@ const Search = () => {
     const { replace } = useRouter();
 
     const handleSearch = useDebouncedCallback( (term) => {
-        const params = new URLSearchParams(searchParams);
-        if (term) {
+      const params = new URLSearchParams(Array.from(searchParams.entries())); // Convert to array  
+      if (term) {
           params.set('name',term);
         }
         else
